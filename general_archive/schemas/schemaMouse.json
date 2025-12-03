@@ -1,0 +1,96 @@
+{
+  "coleccion": "archive_test",
+  "tipo": "Mouse",
+  "estructuraNombreProducto": [
+    {
+      "campo": "marca",
+      "transformacion": "capitalize"
+    },
+    {
+      "campo": "categorias",
+      "index": -1,
+      "subcampo": "descripcion",
+      "transformacion": "capitalize"
+    },
+    {
+      "campo": "nombreProducto",
+      "transformacion": "capitalize"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Otras características"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Tecnología de conectividad"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "capitalize"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Dispositivo de entrada"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Resolución de movimiento"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": " DPI"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Dispositivo de entrada"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Tecnología de detección de movimientos"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Diseño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Color del producto"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "capitalize"
+    }
+  ]
+}
+

@@ -1,0 +1,93 @@
+{
+  "coleccion": "archive_test",
+  "tipo": "Audifonos",
+  "estructuraNombreProducto": [
+    {
+      "campo": "marca",
+      "transformacion": "capitalize"
+    },
+    {
+      "campo": "categorias",
+      "index": -1,
+      "subcampo": "descripcion",
+      "transformacion": "capitalize"
+    },
+    {
+      "campo": "nombreProducto",
+      "transformacion": "capitalize"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Puertos e Interfaces"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Interfaz del dispositivo"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Auriculares"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Estilo de uso"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "capitalize"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Puertos e Interfaces"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Tecnología de conectividad"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Diseño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Color del producto"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    }
+  ]
+}
+
