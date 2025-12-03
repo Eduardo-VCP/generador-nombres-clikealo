@@ -2,20 +2,11 @@ import json
 from pymongo import MongoClient
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment
-from openpyxl.utils import get_column_letter
 
 # Configuración
-MONGO_URI = 'localhost:27017'
-DB_NAME = 'api'
-SCHEMA_PATH = 'C:\Proyecto-VCP\generador-nombres-clikealo\schemaLaptop.json'
-
-# Colores para cada pestaña (en formato RGB hexadecimal)
-COLORES_PESTAÑAS = {
-    "productos originales": "4472C4",  # Azul
-    "productos despues de abasteo": "ED7D31",  # Naranja
-    "productos despues de icecat": "A5A5A5",  # Gris
-    "productos completos": "70AD47"  # Verde
-}
+MONGO_URI = 'mongodb://clikealoapplabuser!:THERE%20IS%20NO%20SPOON@34.132.161.53:27017/clikealo?authSource=admin'
+DB_NAME = 'clikealo'
+SCHEMA_PATH = './schemaLaptop.json'
 
 # Cargar el schema
 with open(SCHEMA_PATH, 'r', encoding='utf-8') as f:
@@ -189,48 +180,12 @@ def generar_nombre_producto(producto, estructura):
         'algunFaltante': algun_faltante
     }
 
-# Función auxiliar para escribir datos en una pestaña específica
-def escribir_en_pestaña(productos, estructura, nombre_archivo, nombre_pestaña):
-
-    generar_excel(productos, estructura, nombre_archivo, nombre_pestaña)
-
 # Función para generar Excel
-def generar_excel(productos, estructura, nombre_archivo, nombre_pestaña="Productos"):
-    """
-    Actualiza SOLO la pestaña especificada, sin modificar las demás pestañas del documento.
-    
-    Args:
-        productos: Lista de productos a escribir
-        estructura: Estructura del nombre del producto (del schema)
-        nombre_archivo: Nombre del archivo Excel
-        nombre_pestaña: Nombre de la pestaña a actualizar (las demás pestañas no se tocan)
-    """
-    # Cargar workbook existente (preserva todas las pestañas)
-    try:
-        wb = openpyxl.load_workbook(nombre_archivo)
-        # Guardar lista de pestañas existentes para verificación
-        pestañas_existentes = wb.sheetnames.copy()
-    except FileNotFoundError:
-        # Si el archivo no existe, crear uno nuevo
-        wb = openpyxl.Workbook()
-        # Eliminar la pestaña por defecto si es un nuevo workbook
-        if 'Sheet' in wb.sheetnames:
-            wb.remove(wb['Sheet'])
-        pestañas_existentes = []
-    
-    # Seleccionar SOLO la pestaña indicada (las demás no se tocan)
-    if nombre_pestaña in wb.sheetnames:
-        ws = wb[nombre_pestaña]
-        # Limpiar contenido existente solo de esta pestaña
-        if ws.max_row > 0:
-            ws.delete_rows(1, ws.max_row)
-    else:
-        # Crear la pestaña si no existe (sin afectar las demás)
-        ws = wb.create_sheet(nombre_pestaña)
-    
-    # Aplicar color a la pestaña si está definido
-    if nombre_pestaña in COLORES_PESTAÑAS:
-        ws.sheet_properties.tabColor = COLORES_PESTAÑAS[nombre_pestaña]
+def generar_excel(productos, estructura, nombre_archivo):
+    # Crear workbook
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Productos"
     
     # Definir estilos
     header_fill = PatternFill(start_color="4CAF50", end_color="4CAF50", fill_type="solid")
@@ -297,7 +252,7 @@ def generar_excel(productos, estructura, nombre_archivo, nombre_pestaña="Produc
         adjusted_width = min(max_length + 2, 50)
         ws.column_dimensions[column_letter].width = adjusted_width
     
-    # Guardar archivo (solo se actualiza la pestaña indicada, las demás se preservan intactas)
+    # Guardar archivo
     wb.save(nombre_archivo)
 
 # Función principal
@@ -320,53 +275,11 @@ def main():
             print('No se encontraron productos para procesar')
             return
         
-        # Generar Excel con las cuatro pestañas
+        # Generar Excel
         nombre_archivo = 'productos_output.xlsx'
-        
-        # Crear las cuatro pestañas desde el inicio
-        pestañas = [
-            "productos originales",
-            "productos despues de abasteo",
-            "productos despues de icecat",
-            "productos completos"
-        ]
-        
-        # Crear o cargar workbook existente (preserva datos existentes)
-        try:
-            wb = openpyxl.load_workbook(nombre_archivo)
-        except FileNotFoundError:
-            # Si el archivo no existe, crear uno nuevo
-            wb = openpyxl.Workbook()
-            if 'Sheet' in wb.sheetnames:
-                wb.remove(wb['Sheet'])
-        
-        # Crear solo las pestañas que no existan (preserva las que ya tienen datos)
-        for pestaña in pestañas:
-            if pestaña not in wb.sheetnames:
-                ws = wb.create_sheet(pestaña)
-                # Aplicar color a la pestaña
-                if pestaña in COLORES_PESTAÑAS:
-                    ws.sheet_properties.tabColor = COLORES_PESTAÑAS[pestaña]
-            else:
-                # Si la pestaña ya existe, solo actualizar el color si es necesario
-                ws = wb[pestaña]
-                if pestaña in COLORES_PESTAÑAS:
-                    ws.sheet_properties.tabColor = COLORES_PESTAÑAS[pestaña]
-        
-        # Guardar solo si se crearon nuevas pestañas o se modificaron colores
-        wb.save(nombre_archivo)
-        
-        
-        pestaña_destino = "productos originales"  # 
-        
-        # Escribir datos en la pestaña seleccionada
-        escribir_en_pestaña(productos, schema['estructuraNombreProducto'], nombre_archivo, pestaña_destino)
-        
-        
+        generar_excel(productos, schema['estructuraNombreProducto'], nombre_archivo)
         print(f'Excel generado: {nombre_archivo}')
         print(f'Total de productos procesados: {len(productos)}')
-        print(f'Pestañas creadas: {", ".join(pestañas)}')
-        print(f'Datos escritos en la pestaña: "{pestaña_destino}"')
         
     except Exception as error:
         print(f'Error: {error}')
