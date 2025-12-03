@@ -1,0 +1,78 @@
+{
+  "coleccion": "archive_test",
+  "tipo": "Tablets",
+  "estructuraNombreProducto": [
+    {
+      "campo": "marca",
+      "transformacion": "capitalize"
+    },
+    {
+      "campo": "categorias",
+      "index": -1,
+      "subcampo": "descripcion",
+      "transformacion": "singular"
+    },
+    {
+      "campo": "nombreProducto",
+      "transformacion": "capitalize"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Memoria"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Capacidad de memoria RAM"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": " RAM"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Software"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Sistema operativo instalado"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Diseño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Color del producto"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    }
+  ]
+}
+
