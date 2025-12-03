@@ -4,7 +4,7 @@ import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment
 
 # Configuración
-MONGO_URI = 'mongodb://clikealoapplabuser!:THERE%20IS%20NO%20SPOON@34.132.161.53:27017/clikealo?authSource=admin'
+MONGO_URI = 'MONGO_URI PARA LA BDD EN PRODUCCION'
 DB_NAME = 'clikealo'
 SCHEMA_PATH = './schemaLaptop.json'
 
