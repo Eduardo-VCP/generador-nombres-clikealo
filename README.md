@@ -1,6 +1,6 @@
 # Generador de Nombres de Productos
 
-Sistema automatizado para generar nombres descriptivos de productos tecnológicos a partir de datos almacenados en MongoDB.
+Sistema automatizado para generar nombres descriptivos de productos a partir de datos almacenados en MongoDB.
 
 ## Descripción
 
