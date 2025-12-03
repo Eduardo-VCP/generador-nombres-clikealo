@@ -1,0 +1,106 @@
+{
+  "coleccion": "archive_test",
+  "tipo": "Monitores",
+  "estructuraNombreProducto": [
+    {
+      "campo": "marca",
+      "transformacion": "mayuscula"
+    },
+    {
+      "campo": "categorias",
+      "index": -1,
+      "subcampo": "descripcion",
+      "transformacion": "singular"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Exhibición"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Diagonal de la pantalla"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Exhibición"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Resolución de la pantalla"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Exhibición"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Tipo de pantalla"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "mayuscula"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Exhibición"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Máxima velocidad de actualización"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Diseño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Color del producto"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    }
+  ]
+}

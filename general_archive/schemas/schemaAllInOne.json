@@ -1,0 +1,161 @@
+{
+    "coleccion": "archive_test",
+    "tipo": "All-in-One",
+    "estructuraNombreProducto": [
+      {
+        "campo": "marca",
+        "transformacion": "mayuscula"
+      },
+      {
+        "campo": "categorias",
+        "index": -1, 
+        "subcampo": "descripcion",
+        "transformacion": "singular"
+      },
+      {
+        "campo": "nombreProducto",
+        "transformacion": "mayuscula"
+      },
+      {
+        "texto": ","
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Procesador"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Familia de procesador"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Procesador"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Modelo del procesador"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "mayuscula"
+      },
+      {
+        "texto": ","
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Memoria"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Capacidad de memoria RAM"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "texto": "RAM"
+      },
+      {
+        "texto": ","
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Medios de almacenaje"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": ["Capacidad total de almacenaje", "Capacidad total SSD", "Capacidad total eMMC", "Capacidad total HDD"]
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Medios de almacenaje"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Unidad de almacenamiento"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "texto": ","
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Software"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Sistema operativo instalado"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "texto": ", Pantalla de"
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Exhibición"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Diagonal de la pantalla"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      },
+      {
+        "texto": ","
+      },
+      {
+        "campo": "especificaciones",
+        "condicion": {
+          "tituloSeccion": "Diseño"
+        },
+        "subcampo": {
+          "seccionList": {
+            "condicion": {
+              "dato": "Color del producto"
+            },
+            "valor": "valor"
+          }
+        },
+        "transformacion": "ninguna"
+      }
+    ]
+  }
