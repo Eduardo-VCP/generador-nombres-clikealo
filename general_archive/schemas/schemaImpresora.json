@@ -1,0 +1,110 @@
+{
+  "coleccion": "archive_test",
+  "tipo": "Impresoras",
+  "estructuraNombreProducto": [
+    {
+      "campo": "marca",
+      "transformacion": "mayuscula"
+    },
+    {
+      "campo": "categorias",
+      "index": -1,
+      "subcampo": "descripcion",
+      "transformacion": "singular"
+    },
+    {
+      "campo": "nombreProducto",
+      "transformacion": "mayuscula"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Desempeño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Tecnología de impresión"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Calidad de impresión"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Colores de impresión"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Capacidad de la entrada"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Capacidad de entrada estándar"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Software"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Sistema operativo Windows soportado"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    },
+    {
+      "texto": ","
+    },
+    {
+      "campo": "especificaciones",
+      "condicion": {
+        "tituloSeccion": "Diseño"
+      },
+      "subcampo": {
+        "seccionList": {
+          "condicion": {
+            "dato": "Color del producto"
+          },
+          "valor": "valor"
+        }
+      },
+      "transformacion": "ninguna"
+    }
+  ]
+}
